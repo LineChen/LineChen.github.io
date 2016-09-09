@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android 仿应用宝下载进度条 | LineChen&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、介绍
+
+一个横向进度条
+下载完成区域有一个滑块不断从左往右滑动（最开始就是被这个吸引的，就想着这个怎么实现的）
+进度条中间显示当前进度，值得注意的是，进度条文本包含在下载区域中的部分显示为白色
+点击暂停，进度条颜色改变，进度文本改变
+
+二、分析根据以上简单介绍，可以抓住要实现的重难点是上面的第2、3点。
+1. 进度条文本包含在下载区域中的部分显示为白色怎么实现？
+这个和歌词变色的效果是一样的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 仿应用宝下载进度条">
+<meta property="og:url" content="http://yoursite.com/2016/08/30/Android 仿应用宝下载进度条/index.html">
+<meta property="og:site_name" content="LineChen's Blog">
+<meta property="og:description" content="一、介绍
+
+一个横向进度条
+下载完成区域有一个滑块不断从左往右滑动（最开始就是被这个吸引的，就想着这个怎么实现的）
+进度条中间显示当前进度，值得注意的是，进度条文本包含在下载区域中的部分显示为白色
+点击暂停，进度条颜色改变，进度文本改变
+
+二、分析根据以上简单介绍，可以抓住要实现的重难点是上面的第2、3点。
+1. 进度条文本包含在下载区域中的部分显示为白色怎么实现？
+这个和歌词变色的效果是一样的，">
+<meta property="og:image" content="http://img.blog.csdn.net/20160830104632968">
+<meta property="og:image" content="http://img.blog.csdn.net/20160830101404560">
+<meta property="og:image" content="http://img.blog.csdn.net/20160830101431622">
+<meta property="og:updated_time" content="2016-09-09T02:21:28.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 仿应用宝下载进度条">
+<meta name="twitter:description" content="一、介绍
+
+一个横向进度条
+下载完成区域有一个滑块不断从左往右滑动（最开始就是被这个吸引的，就想着这个怎么实现的）
+进度条中间显示当前进度，值得注意的是，进度条文本包含在下载区域中的部分显示为白色
+点击暂停，进度条颜色改变，进度文本改变
+
+二、分析根据以上简单介绍，可以抓住要实现的重难点是上面的第2、3点。
+1. 进度条文本包含在下载区域中的部分显示为白色怎么实现？
+这个和歌词变色的效果是一样的，">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160830104632968">
+  
+    <link rel="alternative" href="/atom.xml" title="LineChen&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LineChen&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Now is Android</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Android 仿应用宝下载进度条" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/30/Android 仿应用宝下载进度条/" class="article-date">
+  <time datetime="2016-08-30T02:34:20.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 仿应用宝下载进度条
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p><img src="http://img.blog.csdn.net/20160830104632968" alt=""></p>
+<ol>
+<li>一个横向进度条</li>
+<li>下载完成区域有一个滑块不断从左往右滑动（最开始就是被这个吸引的，就想着这个怎么实现的）</li>
+<li>进度条中间显示当前进度，值得注意的是，进度条文本包含在下载区域中的部分显示为白色</li>
+<li>点击暂停，进度条颜色改变，进度文本改变</li>
+</ol>
+<h1 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h1><p>根据以上简单介绍，可以抓住要实现的重难点是上面的第2、3点。</p>
+<pre><code>1. 进度条文本包含在下载区域中的部分显示为白色怎么实现？
+</code></pre><p>这个和歌词变色的效果是一样的，所以实现原理应该差不多。canvas有一个save的方法，然后设置成CLIP_SAVE_FLAG标志，这个标志的解释是restore the current clip when restore() is called.然后结合canvas的clip方法和restore方法就能实现。后文见代码④。</p>
+<pre><code>2.  下载完成区域有一个滑块不断从左往右滑动怎么实现？
+</code></pre><p>首先想到的是画这样一个滑块(其实是一张图片)，然后不断根据当前进度修改位置实现移动。需要注意的是这个滑块的移动特点： 滑块的右边界开始进入，最后左边界消失，而且只在下载完成这个区域内有显示（右边界超出下载完成右边界部分不显示）这让我想到两个图层重叠时的显示模式，再看看这幅图，那么这里就可以使用SRC_ATOP模式。</p>
+<p><img src="http://img.blog.csdn.net/20160830101404560" alt="这里写图片描述"></p>
+<h1 id="三、实现"><a href="#三、实现" class="headerlink" title="三、实现"></a>三、实现</h1><p> <strong>1.自定义属性</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;declare-styleable name="FlikerProgressBar"&gt;</div><div class="line">    &lt;attr name="textSize" format="dimension|reference"/&gt;</div><div class="line">  </div><div class="line">    &lt;attr name="loadingColor" format="color|reference"/&gt;</div><div class="line"></div><div class="line">    &lt;attr name="stopColor" format="color|reference"/&gt;</div><div class="line"></div><div class="line">&lt;/declare-styleable&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAttrs</span><span class="params">(AttributeSet attrs)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (attrs != <span class="keyword">null</span>) &#123;</div><div class="line">        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.FlikerProgressBar);</div><div class="line">        textSize = (<span class="keyword">int</span>) ta.getDimension(R.styleable.FlikerProgressBar_textSize, dp2px(<span class="number">12</span>));</div><div class="line">        loadingColor = ta.getColor(R.styleable.FlikerProgressBar_loadingColor, Color.parseColor(<span class="string">"#40c4ff"</span>));</div><div class="line">        stopColor = ta.getColor(R.styleable.FlikerProgressBar_stopColor, Color.parseColor(<span class="string">"#ff9800"</span>));</div><div class="line">        ta.recycle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2.重写onMeasure方法，当height设置为wrap_content时设置为默认高度</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">    <span class="keyword">int</span> heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> height = <span class="number">0</span>;</div><div class="line">    <span class="keyword">switch</span> (heightSpecMode)&#123;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.AT_MOST:</div><div class="line">            height = (<span class="keyword">int</span>) dp2px(DEFAULT_HEIGHT_DP);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.EXACTLY:</div><div class="line">        <span class="keyword">case</span> MeasureSpec.UNSPECIFIED:</div><div class="line">            height = heightSpecSize;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    setMeasuredDimension(widthSpecSize, height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.重写onDraw方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//1.边框</span></div><div class="line">    drawBorder(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//2.进度</span></div><div class="line">    drawProgress();</div><div class="line"></div><div class="line">    canvas.drawBitmap(pgBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">    <span class="comment">//3.进度text</span></div><div class="line">    drawProgressText(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//4.变色处理</span></div><div class="line">    drawColorProgressText(canvas);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>①绘制边框</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawBorder</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    bgPaint.setStyle(Paint.Style.STROKE);</div><div class="line">    bgPaint.setColor(progressColor);</div><div class="line">    bgPaint.setStrokeWidth(dp2px(<span class="number">1</span>));</div><div class="line">    canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getHeight(), bgPaint);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>②绘制进度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawProgress</span><span class="params">()</span> </span>&#123;</div><div class="line">    bgPaint.setStyle(Paint.Style.FILL);</div><div class="line">    bgPaint.setStrokeWidth(<span class="number">0</span>);</div><div class="line">    bgPaint.setColor(progressColor);</div><div class="line"></div><div class="line">    <span class="keyword">float</span> right = (progress / MAX_PROGRESS) * getMeasuredWidth();</div><div class="line">    pgBitmap = Bitmap.createBitmap((<span class="keyword">int</span>) Math.max(right, <span class="number">1</span>), getMeasuredHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">    pgCanvas = <span class="keyword">new</span> Canvas(pgBitmap);</div><div class="line">    pgCanvas.drawColor(progressColor);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!isStop)&#123;</div><div class="line">        bgPaint.setXfermode(xfermode);</div><div class="line">        pgCanvas.drawBitmap(flikerBitmap, flickerLeft, <span class="number">0</span>, bgPaint);</div><div class="line">        bgPaint.setXfermode(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>③绘制进度条显示文本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawProgressText</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    textPaint.setColor(progressColor);</div><div class="line">    progressText = getProgressText();</div><div class="line">    textPaint.getTextBounds(progressText, <span class="number">0</span>, progressText.length(), textBouds);</div><div class="line">    <span class="keyword">int</span> tWidth = textBouds.width();</div><div class="line">    <span class="keyword">int</span> tHeight = textBouds.height();</div><div class="line">    <span class="keyword">float</span> xCoordinate = (getMeasuredWidth() - tWidth) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> yCoordinate = (getMeasuredHeight() + tHeight) / <span class="number">2</span>;</div><div class="line">    canvas.drawText(progressText, xCoordinate, yCoordinate, textPaint);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>④进度条文本变色处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawColorProgressText</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    textPaint.setColor(Color.WHITE);</div><div class="line">    <span class="keyword">int</span> tWidth = textBouds.width();</div><div class="line">    <span class="keyword">int</span> tHeight = textBouds.height();</div><div class="line">    <span class="keyword">float</span> xCoordinate = (getMeasuredWidth() - tWidth) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> yCoordinate = (getMeasuredHeight() + tHeight) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> progressWidth = (progress / MAX_PROGRESS) * getMeasuredWidth();</div><div class="line">    <span class="keyword">if</span>(progressWidth &gt; xCoordinate)&#123;</div><div class="line">        canvas.save(Canvas.CLIP_SAVE_FLAG);</div><div class="line">        <span class="keyword">float</span> right = Math.min(progressWidth, xCoordinate + tWidth);</div><div class="line">        canvas.clipRect(xCoordinate, <span class="number">0</span>, right, getMeasuredHeight());</div><div class="line">        canvas.drawText(progressText, xCoordinate, yCoordinate, textPaint);</div><div class="line">        canvas.restore();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="四、效果图"><a href="#四、效果图" class="headerlink" title="四、效果图"></a>四、效果图</h1><p><img src="http://img.blog.csdn.net/20160830101431622" alt=""></p>
+<h1 id="五、下载"><a href="#五、下载" class="headerlink" title="五、下载"></a>五、下载</h1><h2 id="下载：https-github-com-LineChen-FlickerProgressBar"><a href="#下载：https-github-com-LineChen-FlickerProgressBar" class="headerlink" title="下载：https://github.com/LineChen/FlickerProgressBar"></a><a href="https://github.com/LineChen/FlickerProgressBar" target="_blank" rel="external">下载：https://github.com/LineChen/FlickerProgressBar</a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/08/30/Android 仿应用宝下载进度条/" data-id="cisv4zxht0000jwqrffj54gxm" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义控件/">自定义控件</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/23/自定义圆形图片、可控位置圆角图片/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">自定义圆形图片、可控位置圆角图片</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://blog.csdn.net/u011102153" target="_blank">我的csdn</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/LineChen" target="_blank">我的github</a>
+          </li>
+        
+          <li>
+            <a href="https://darksiderlyd.github.io/" target="_blank">Darksiderl的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 LineChen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

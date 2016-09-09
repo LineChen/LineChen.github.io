@@ -140,13 +140,13 @@
 <p><strong>13、RelativeSizeSpan 相对大小（文本字体）</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"RelativeSizeSpan"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> RelativeSizeSpan(<span class="number">2.5f</span>), <span class="number">3</span>, <span class="number">4</span>,</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>15、ScaleXSpan 基于x轴缩放</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"ScaleXSpan -- 萝卜白菜的博客"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> ScaleXSpan(<span class="number">3.8f</span>), <span class="number">3</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"ScaleXSpan"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> ScaleXSpan(<span class="number">3.8f</span>), <span class="number">3</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>16、StyleSpan 字体样式：粗体、斜体等</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"StyleSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> StyleSpan(Typeface.BOLD_ITALIC), <span class="number">3</span>, <span class="number">7</span>,</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>17、SubscriptSpan 下标（数学公式会用到）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SubscriptSpan -- 萝卜白菜的博客"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SubscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SubscriptSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SubscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>18、SuperscriptSpan 上标（数学公式会用到）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SuperscriptSpan -- 萝卜白菜的博客"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SuperscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SuperscriptSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SuperscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>19、TextAppearanceSpan 文本外貌（包括字体、大小、样式和颜色）</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"TextAppearanceSpan"</span>);</div><div class="line"><span class="comment">//若需自定义TextAppearance，可以在系统样式上进行修改</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> TextAppearanceSpan(<span class="keyword">this</span>, android.R.style.TextAppearance_Medium),</div><div class="line"> <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>20、TypefaceSpan 文本字体</strong></p>
@@ -157,12 +157,83 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4p2hu0000a8qrsq3j2dv7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4zxi90006jwqr84m4j0ye" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android 仿应用宝下载进度条" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/30/Android 仿应用宝下载进度条/" class="article-date">
+  <time datetime="2016-08-30T02:34:20.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/30/Android 仿应用宝下载进度条/">Android 仿应用宝下载进度条</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p><img src="http://img.blog.csdn.net/20160830104632968" alt=""></p>
+<ol>
+<li>一个横向进度条</li>
+<li>下载完成区域有一个滑块不断从左往右滑动（最开始就是被这个吸引的，就想着这个怎么实现的）</li>
+<li>进度条中间显示当前进度，值得注意的是，进度条文本包含在下载区域中的部分显示为白色</li>
+<li>点击暂停，进度条颜色改变，进度文本改变</li>
+</ol>
+<h1 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h1><p>根据以上简单介绍，可以抓住要实现的重难点是上面的第2、3点。</p>
+<pre><code>1. 进度条文本包含在下载区域中的部分显示为白色怎么实现？
+</code></pre><p>这个和歌词变色的效果是一样的，所以实现原理应该差不多。canvas有一个save的方法，然后设置成CLIP_SAVE_FLAG标志，这个标志的解释是restore the current clip when restore() is called.然后结合canvas的clip方法和restore方法就能实现。后文见代码④。</p>
+<pre><code>2.  下载完成区域有一个滑块不断从左往右滑动怎么实现？
+</code></pre><p>首先想到的是画这样一个滑块(其实是一张图片)，然后不断根据当前进度修改位置实现移动。需要注意的是这个滑块的移动特点： 滑块的右边界开始进入，最后左边界消失，而且只在下载完成这个区域内有显示（右边界超出下载完成右边界部分不显示）这让我想到两个图层重叠时的显示模式，再看看这幅图，那么这里就可以使用SRC_ATOP模式。</p>
+<p><img src="http://img.blog.csdn.net/20160830101404560" alt="这里写图片描述"></p>
+<h1 id="三、实现"><a href="#三、实现" class="headerlink" title="三、实现"></a>三、实现</h1><p> <strong>1.自定义属性</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;declare-styleable name="FlikerProgressBar"&gt;</div><div class="line">    &lt;attr name="textSize" format="dimension|reference"/&gt;</div><div class="line">  </div><div class="line">    &lt;attr name="loadingColor" format="color|reference"/&gt;</div><div class="line"></div><div class="line">    &lt;attr name="stopColor" format="color|reference"/&gt;</div><div class="line"></div><div class="line">&lt;/declare-styleable&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAttrs</span><span class="params">(AttributeSet attrs)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (attrs != <span class="keyword">null</span>) &#123;</div><div class="line">        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.FlikerProgressBar);</div><div class="line">        textSize = (<span class="keyword">int</span>) ta.getDimension(R.styleable.FlikerProgressBar_textSize, dp2px(<span class="number">12</span>));</div><div class="line">        loadingColor = ta.getColor(R.styleable.FlikerProgressBar_loadingColor, Color.parseColor(<span class="string">"#40c4ff"</span>));</div><div class="line">        stopColor = ta.getColor(R.styleable.FlikerProgressBar_stopColor, Color.parseColor(<span class="string">"#ff9800"</span>));</div><div class="line">        ta.recycle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2.重写onMeasure方法，当height设置为wrap_content时设置为默认高度</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">    <span class="keyword">int</span> heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);</div><div class="line">    <span class="keyword">int</span> height = <span class="number">0</span>;</div><div class="line">    <span class="keyword">switch</span> (heightSpecMode)&#123;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.AT_MOST:</div><div class="line">            height = (<span class="keyword">int</span>) dp2px(DEFAULT_HEIGHT_DP);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.EXACTLY:</div><div class="line">        <span class="keyword">case</span> MeasureSpec.UNSPECIFIED:</div><div class="line">            height = heightSpecSize;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    setMeasuredDimension(widthSpecSize, height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.重写onDraw方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//1.边框</span></div><div class="line">    drawBorder(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//2.进度</span></div><div class="line">    drawProgress();</div><div class="line"></div><div class="line">    canvas.drawBitmap(pgBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">    <span class="comment">//3.进度text</span></div><div class="line">    drawProgressText(canvas);</div><div class="line"></div><div class="line">    <span class="comment">//4.变色处理</span></div><div class="line">    drawColorProgressText(canvas);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>①绘制边框</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawBorder</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    bgPaint.setStyle(Paint.Style.STROKE);</div><div class="line">    bgPaint.setColor(progressColor);</div><div class="line">    bgPaint.setStrokeWidth(dp2px(<span class="number">1</span>));</div><div class="line">    canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getHeight(), bgPaint);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>②绘制进度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawProgress</span><span class="params">()</span> </span>&#123;</div><div class="line">    bgPaint.setStyle(Paint.Style.FILL);</div><div class="line">    bgPaint.setStrokeWidth(<span class="number">0</span>);</div><div class="line">    bgPaint.setColor(progressColor);</div><div class="line"></div><div class="line">    <span class="keyword">float</span> right = (progress / MAX_PROGRESS) * getMeasuredWidth();</div><div class="line">    pgBitmap = Bitmap.createBitmap((<span class="keyword">int</span>) Math.max(right, <span class="number">1</span>), getMeasuredHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">    pgCanvas = <span class="keyword">new</span> Canvas(pgBitmap);</div><div class="line">    pgCanvas.drawColor(progressColor);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!isStop)&#123;</div><div class="line">        bgPaint.setXfermode(xfermode);</div><div class="line">        pgCanvas.drawBitmap(flikerBitmap, flickerLeft, <span class="number">0</span>, bgPaint);</div><div class="line">        bgPaint.setXfermode(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>③绘制进度条显示文本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawProgressText</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    textPaint.setColor(progressColor);</div><div class="line">    progressText = getProgressText();</div><div class="line">    textPaint.getTextBounds(progressText, <span class="number">0</span>, progressText.length(), textBouds);</div><div class="line">    <span class="keyword">int</span> tWidth = textBouds.width();</div><div class="line">    <span class="keyword">int</span> tHeight = textBouds.height();</div><div class="line">    <span class="keyword">float</span> xCoordinate = (getMeasuredWidth() - tWidth) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> yCoordinate = (getMeasuredHeight() + tHeight) / <span class="number">2</span>;</div><div class="line">    canvas.drawText(progressText, xCoordinate, yCoordinate, textPaint);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>④进度条文本变色处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawColorProgressText</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    textPaint.setColor(Color.WHITE);</div><div class="line">    <span class="keyword">int</span> tWidth = textBouds.width();</div><div class="line">    <span class="keyword">int</span> tHeight = textBouds.height();</div><div class="line">    <span class="keyword">float</span> xCoordinate = (getMeasuredWidth() - tWidth) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> yCoordinate = (getMeasuredHeight() + tHeight) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">float</span> progressWidth = (progress / MAX_PROGRESS) * getMeasuredWidth();</div><div class="line">    <span class="keyword">if</span>(progressWidth &gt; xCoordinate)&#123;</div><div class="line">        canvas.save(Canvas.CLIP_SAVE_FLAG);</div><div class="line">        <span class="keyword">float</span> right = Math.min(progressWidth, xCoordinate + tWidth);</div><div class="line">        canvas.clipRect(xCoordinate, <span class="number">0</span>, right, getMeasuredHeight());</div><div class="line">        canvas.drawText(progressText, xCoordinate, yCoordinate, textPaint);</div><div class="line">        canvas.restore();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="四、效果图"><a href="#四、效果图" class="headerlink" title="四、效果图"></a>四、效果图</h1><p><img src="http://img.blog.csdn.net/20160830101431622" alt=""></p>
+<h1 id="五、下载"><a href="#五、下载" class="headerlink" title="五、下载"></a>五、下载</h1><h2 id="下载：https-github-com-LineChen-FlickerProgressBar"><a href="#下载：https-github-com-LineChen-FlickerProgressBar" class="headerlink" title="下载：https://github.com/LineChen/FlickerProgressBar"></a><a href="https://github.com/LineChen/FlickerProgressBar" target="_blank" rel="external">下载：https://github.com/LineChen/FlickerProgressBar</a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/08/30/Android 仿应用宝下载进度条/" data-id="cisv4zxht0000jwqrffj54gxm" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义控件/">自定义控件</a></li></ul>
+
     </footer>
   </div>
   
@@ -249,7 +320,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/08/23/自定义圆形图片、可控位置圆角图片/" data-id="cisv4p2i90001a8qrumz3tvhc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/08/23/自定义圆形图片、可控位置圆角图片/" data-id="cisv4zxht0001jwqr9vy6ki1z" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -275,7 +346,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -293,7 +364,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

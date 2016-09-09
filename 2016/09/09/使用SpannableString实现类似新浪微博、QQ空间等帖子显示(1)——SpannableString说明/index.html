@@ -20,7 +20,7 @@ For">
 BackgroundColorSpan 背景色
 ClickableSpan 文本可点击，有点击事件
 For">
-<meta property="og:updated_time" content="2016-09-09T02:11:23.810Z">
+<meta property="og:updated_time" content="2016-09-09T02:20:28.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明">
 <meta name="twitter:description" content="TextView通常用来显示普通文本，但是有时候需要对其中某些文本进行样式、事件方面的设置。Android系统通过SpannableString类来对指定文本进行相关处理，实际应用中用的比较多的地方比如聊天时显示表情啊，朋友圈或社区中话题的显示、@好友显示和点击等等，关键字显示不同颜色……
@@ -151,13 +151,13 @@ For">
 <p><strong>13、RelativeSizeSpan 相对大小（文本字体）</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"RelativeSizeSpan"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> RelativeSizeSpan(<span class="number">2.5f</span>), <span class="number">3</span>, <span class="number">4</span>,</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>15、ScaleXSpan 基于x轴缩放</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"ScaleXSpan -- 萝卜白菜的博客"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> ScaleXSpan(<span class="number">3.8f</span>), <span class="number">3</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"ScaleXSpan"</span>);</div><div class="line"><span class="comment">//参数proportion:比例大小</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> ScaleXSpan(<span class="number">3.8f</span>), <span class="number">3</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>16、StyleSpan 字体样式：粗体、斜体等</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"StyleSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> StyleSpan(Typeface.BOLD_ITALIC), <span class="number">3</span>, <span class="number">7</span>,</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>17、SubscriptSpan 下标（数学公式会用到）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SubscriptSpan -- 萝卜白菜的博客"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SubscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SubscriptSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SubscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>18、SuperscriptSpan 上标（数学公式会用到）</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SuperscriptSpan -- 萝卜白菜的博客"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SuperscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"SuperscriptSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> SuperscriptSpan(), <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>19、TextAppearanceSpan 文本外貌（包括字体、大小、样式和颜色）</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spanText = <span class="keyword">new</span> SpannableString(<span class="string">"TextAppearanceSpan"</span>);</div><div class="line"><span class="comment">//若需自定义TextAppearance，可以在系统样式上进行修改</span></div><div class="line">spanText.setSpan(<span class="keyword">new</span> TextAppearanceSpan(<span class="keyword">this</span>, android.R.style.TextAppearance_Medium),</div><div class="line"> <span class="number">6</span>, <span class="number">7</span>, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>20、TypefaceSpan 文本字体</strong></p>
@@ -168,7 +168,7 @@ For">
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4p2hu0000a8qrsq3j2dv7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4zxi90006jwqr84m4j0ye" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -181,9 +181,9 @@ For">
 <nav id="article-nav">
   
   
-    <a href="/2016/08/23/自定义圆形图片、可控位置圆角图片/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/30/Android 仿应用宝下载进度条/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">自定义圆形图片、可控位置圆角图片</div>
+      <div class="article-nav-title">Android 仿应用宝下载进度条</div>
     </a>
   
 </nav>
@@ -201,7 +201,7 @@ For">
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +219,7 @@ For">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
