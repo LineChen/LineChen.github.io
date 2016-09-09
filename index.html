@@ -119,7 +119,7 @@
 <li>URLSpan 文本超链接</li>
 </ol>
 <p><strong>1、BackgroundColorSpan 背景色</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SpannableString spanText = <span class="keyword">new</span> SpannableString(<span class="string">"萝卜白菜的博客 -- http://orgcent.com"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> BackgroundColorSpan(Color.GREEN), <span class="number">0</span>, spanText.length(),</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SpannableString spanText = <span class="keyword">new</span> SpannableString(<span class="string">"BackgroundColorSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> BackgroundColorSpan(Color.GREEN), <span class="number">0</span>, spanText.length(),</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>2、ClickableSpan 文本可点击，有点击事件</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> spannableString.setSpan(<span class="keyword">new</span> ClickableSpan() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View widget)</span> </span>&#123;</div><div class="line">                    spanClickListener.onSpanClick(bean);</div><div class="line">                &#125;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateDrawState</span><span class="params">(TextPaint ds)</span> </span>&#123;</div><div class="line">                    <span class="keyword">super</span>.updateDrawState(ds);</div><div class="line">                    <span class="comment">//设置画笔属性</span></div><div class="line">                    ds.setUnderlineText(<span class="keyword">false</span>);<span class="comment">//默认有下划线</span></div><div class="line">                &#125;</div><div class="line">            &#125;, matcher.start(), end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</div><div class="line">tvTopic.setText(spannableString);</div><div class="line"><span class="comment">//如果想实现点击，必须要设置这个</span></div><div class="line">tvTopic.setMovementMethod(LinkMovementMethod.getInstance());</div></pre></td></tr></table></figure>
 <p><strong>3、ForegroundColorSpan 文本颜色（前景色）</strong></p>
@@ -157,56 +157,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4jwn20000fsqrkdyd6zvi" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/24/hello-world/" class="article-date">
-  <time datetime="2016-08-24T07:10:43.165Z" itemprop="datePublished">2016-08-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/08/24/hello-world/" data-id="cisv4jwni0004fsqrm03uakkx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4p2hu0000a8qrsq3j2dv7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -298,7 +249,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/08/23/自定义圆形图片、可控位置圆角图片/" data-id="cisv4jwn70001fsqrhcg0gpoj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/08/23/自定义圆形图片、可控位置圆角图片/" data-id="cisv4p2i90001a8qrumz3tvhc" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -342,7 +293,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

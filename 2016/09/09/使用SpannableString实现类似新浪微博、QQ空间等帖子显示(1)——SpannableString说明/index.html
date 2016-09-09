@@ -20,7 +20,7 @@ For">
 BackgroundColorSpan 背景色
 ClickableSpan 文本可点击，有点击事件
 For">
-<meta property="og:updated_time" content="2016-09-09T02:08:09.421Z">
+<meta property="og:updated_time" content="2016-09-09T02:11:23.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明">
 <meta name="twitter:description" content="TextView通常用来显示普通文本，但是有时候需要对其中某些文本进行样式、事件方面的设置。Android系统通过SpannableString类来对指定文本进行相关处理，实际应用中用的比较多的地方比如聊天时显示表情啊，朋友圈或社区中话题的显示、@好友显示和点击等等，关键字显示不同颜色……
@@ -130,7 +130,7 @@ For">
 <li>URLSpan 文本超链接</li>
 </ol>
 <p><strong>1、BackgroundColorSpan 背景色</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SpannableString spanText = <span class="keyword">new</span> SpannableString(<span class="string">"萝卜白菜的博客 -- http://orgcent.com"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> BackgroundColorSpan(Color.GREEN), <span class="number">0</span>, spanText.length(),</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SpannableString spanText = <span class="keyword">new</span> SpannableString(<span class="string">"BackgroundColorSpan"</span>);</div><div class="line">spanText.setSpan(<span class="keyword">new</span> BackgroundColorSpan(Color.GREEN), <span class="number">0</span>, spanText.length(),</div><div class="line">Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">mTVText.append(<span class="string">"\n"</span>);</div><div class="line">mTVText.append(spanText);</div></pre></td></tr></table></figure>
 <p><strong>2、ClickableSpan 文本可点击，有点击事件</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> spannableString.setSpan(<span class="keyword">new</span> ClickableSpan() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View widget)</span> </span>&#123;</div><div class="line">                    spanClickListener.onSpanClick(bean);</div><div class="line">                &#125;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateDrawState</span><span class="params">(TextPaint ds)</span> </span>&#123;</div><div class="line">                    <span class="keyword">super</span>.updateDrawState(ds);</div><div class="line">                    <span class="comment">//设置画笔属性</span></div><div class="line">                    ds.setUnderlineText(<span class="keyword">false</span>);<span class="comment">//默认有下划线</span></div><div class="line">                &#125;</div><div class="line">            &#125;, matcher.start(), end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</div><div class="line">tvTopic.setText(spannableString);</div><div class="line"><span class="comment">//如果想实现点击，必须要设置这个</span></div><div class="line">tvTopic.setMovementMethod(LinkMovementMethod.getInstance());</div></pre></td></tr></table></figure>
 <p><strong>3、ForegroundColorSpan 文本颜色（前景色）</strong></p>
@@ -168,7 +168,7 @@ For">
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4jwn20000fsqrkdyd6zvi" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" data-id="cisv4p2hu0000a8qrsq3j2dv7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -181,9 +181,9 @@ For">
 <nav id="article-nav">
   
   
-    <a href="/2016/08/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/23/自定义圆形图片、可控位置圆角图片/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">自定义圆形图片、可控位置圆角图片</div>
     </a>
   
 </nav>
@@ -219,7 +219,7 @@ For">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
