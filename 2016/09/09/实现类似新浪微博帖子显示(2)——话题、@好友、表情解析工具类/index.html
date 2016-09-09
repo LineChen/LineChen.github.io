@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类 | LineChen&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、介绍
+这是新浪微博的一个帖子，刚好包括了话题、表情、@好友三种显示。显示方法上篇已经阐述了，就是使用SpannableString。这篇主要介绍显示这种帖子的解析工具类。
+二、实现1.字符串表示和对应正则表达式
+
+话题用##号括起来
+表情用[]表示
+@好友昵称
+
+借助正则匹配来解析帖子信息。
+
+话题 -&amp;gt; #[^#]+#
+表情 -&amp;gt; [[^]]+]
+@好友 -&amp;gt; @好友昵称">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类">
+<meta property="og:url" content="http://yoursite.com/2016/09/09/实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类/index.html">
+<meta property="og:site_name" content="LineChen's Blog">
+<meta property="og:description" content="一、介绍
+这是新浪微博的一个帖子，刚好包括了话题、表情、@好友三种显示。显示方法上篇已经阐述了，就是使用SpannableString。这篇主要介绍显示这种帖子的解析工具类。
+二、实现1.字符串表示和对应正则表达式
+
+话题用##号括起来
+表情用[]表示
+@好友昵称
+
+借助正则匹配来解析帖子信息。
+
+话题 -&amp;gt; #[^#]+#
+表情 -&amp;gt; [[^]]+]
+@好友 -&amp;gt; @好友昵称">
+<meta property="og:image" content="http://img.blog.csdn.net/20160909145425821">
+<meta property="og:image" content="http://img.blog.csdn.net/20160909145349070">
+<meta property="og:updated_time" content="2016-09-09T06:53:42.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类">
+<meta name="twitter:description" content="一、介绍
+这是新浪微博的一个帖子，刚好包括了话题、表情、@好友三种显示。显示方法上篇已经阐述了，就是使用SpannableString。这篇主要介绍显示这种帖子的解析工具类。
+二、实现1.字符串表示和对应正则表达式
+
+话题用##号括起来
+表情用[]表示
+@好友昵称
+
+借助正则匹配来解析帖子信息。
+
+话题 -&amp;gt; #[^#]+#
+表情 -&amp;gt; [[^]]+]
+@好友 -&amp;gt; @好友昵称">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160909145425821">
+  
+    <link rel="alternative" href="/atom.xml" title="LineChen&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LineChen&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Now is Android</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/09/实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类/" class="article-date">
+  <time datetime="2016-09-09T06:52:47.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p><img src="http://img.blog.csdn.net/20160909145425821" alt="这里写图片描述"></p>
+<pre><code>这是新浪微博的一个帖子，刚好包括了话题、表情、@好友三种显示。显示方法上篇已经阐述了，就是使用SpannableString。这篇主要介绍显示这种帖子的解析工具类。
+</code></pre><h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><p>1.字符串表示和对应正则表达式</p>
+<ul>
+<li>话题用##号括起来</li>
+<li>表情用[]表示</li>
+<li>@好友昵称</li>
+</ul>
+<p>借助正则匹配来解析帖子信息。</p>
+<ul>
+<li>话题 -&gt; #[^#]+#</li>
+<li>表情 -&gt; [[^]]+]</li>
+<li>@好友 -&gt; @好友昵称</li>
+</ul>
+<p>2.写一个通用方法，对spanableString进行正则判断，如果符合要求，则将内容变色</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dealPattern</span><span class="params">(<span class="keyword">int</span> color, SpannableString spannableString, Pattern patten, <span class="keyword">int</span> start)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Matcher matcher = patten.matcher(spannableString);</div><div class="line">        <span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">            String key = matcher.group();</div><div class="line">            <span class="comment">// 返回第一个字符的索引的文本匹配整个正则表达式,ture 则继续递归</span></div><div class="line">            <span class="keyword">if</span> (matcher.start() &lt; start) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 计算该内容的长度，也就是要替换的字符串的长度</span></div><div class="line">            <span class="keyword">int</span> end = matcher.start() + key.length();</div><div class="line">            <span class="comment">//设置前景色span</span></div><div class="line">            spannableString.setSpan(<span class="keyword">new</span> ForegroundColorSpan(color), matcher.start(), end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</div><div class="line">            <span class="keyword">if</span> (end &lt; spannableString.length()) &#123;</div><div class="line">                <span class="comment">// 如果整个字符串还未验证完，则继续。。</span></div><div class="line">                dealPattern(color, spannableString, patten, end);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>3.应为有些是可点击的，所以需要一个方法来处理可点击的内容</p>
+<p>①先定义一个接口，通过接口的方式将点击事件交给调用者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SpanClickListener</span>&lt;<span class="title">T</span>&gt;</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onSpanClick</span><span class="params">(T t)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>②写一个通用方法，对spanableString进行正则判断，如果符合要求，将内容设置可点击</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dealClick</span><span class="params">(SpannableString spannableString, Pattern patten, <span class="keyword">int</span> start, <span class="keyword">final</span> SpanClickListener spanClickListener, <span class="keyword">final</span> Object bean)</span></span>&#123;</div><div class="line">        Matcher matcher = patten.matcher(spannableString);</div><div class="line">        <span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">            String key = matcher.group();</div><div class="line">            <span class="comment">// 返回第一个字符的索引的文本匹配整个正则表达式,ture 则继续递归</span></div><div class="line">            <span class="keyword">if</span> (matcher.start() &lt; start) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 计算该内容的长度，也就是要替换的字符串的长度</span></div><div class="line">            <span class="keyword">int</span> end = matcher.start() + key.length();</div><div class="line">            spannableString.setSpan(<span class="keyword">new</span> ClickableSpan() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View widget)</span> </span>&#123;</div><div class="line">                    spanClickListener.onSpanClick(bean);</div><div class="line">                &#125;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateDrawState</span><span class="params">(TextPaint ds)</span> </span>&#123;</div><div class="line">                    <span class="keyword">super</span>.updateDrawState(ds);</div><div class="line">                    <span class="comment">//设置画笔属性</span></div><div class="line">                    ds.setUnderlineText(<span class="keyword">false</span>);<span class="comment">//默认有下划线</span></div><div class="line">                &#125;</div><div class="line">            &#125;, matcher.start(), end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</div><div class="line">            <span class="keyword">if</span> (end &lt; spannableString.length()) &#123;</div><div class="line">                <span class="comment">// 如果整个字符串还未验证完，则继续。。</span></div><div class="line">                dealClick(spannableString, patten, end, spanClickListener, bean);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>4.表情解析方法（后面会写一篇关于表情的处理）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dealExpression</span><span class="params">(Context context,</span></span></div><div class="line">            SpannableString spannableString, Pattern patten, <span class="keyword">int</span> start)</div><div class="line">            <span class="keyword">throws</span> Exception &#123;</div><div class="line">        Matcher matcher = patten.matcher(spannableString);</div><div class="line">        <span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line"></div><div class="line">            String key = matcher.group();</div><div class="line">            <span class="keyword">if</span> (matcher.start() &lt; start) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            String value = emojiMap.get(key);</div><div class="line">            <span class="keyword">if</span> (TextUtils.isEmpty(value)) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 通过上面匹配得到的字符串来生成图片资源id</span></div><div class="line">            <span class="keyword">int</span> resId = context.getResources().getIdentifier(value, <span class="string">"drawable"</span>,</div><div class="line">                    context.getPackageName());</div><div class="line">            <span class="keyword">if</span> (resId != <span class="number">0</span>) &#123;</div><div class="line">                Drawable emoji = context.getResources().getDrawable(resId);</div><div class="line">                <span class="keyword">int</span> w = (<span class="keyword">int</span>) (emoji.getIntrinsicWidth() * <span class="number">0.40</span>);</div><div class="line">                <span class="keyword">int</span> h = (<span class="keyword">int</span>) (emoji.getIntrinsicHeight() * <span class="number">0.40</span>);</div><div class="line">                emoji.setBounds(<span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line">                <span class="comment">// 通过图片资源id来得到bitmap，用一个ImageSpan来包装</span></div><div class="line">                ImageSpan imageSpan = <span class="keyword">new</span> ImageSpan(emoji);</div><div class="line">                <span class="comment">// 计算该图片名字的长度，也就是要替换的字符串的长度</span></div><div class="line">                <span class="keyword">int</span> end = matcher.start() + key.length();</div><div class="line">                <span class="comment">// 将该图片替换字符串中规定的位置中</span></div><div class="line">                spannableString.setSpan(imageSpan, matcher.start(), end,</div><div class="line">                        Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</div><div class="line">                <span class="keyword">if</span> (end &lt; spannableString.length()) &#123;</div><div class="line">                    dealExpression(context, spannableString, patten, end);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>5.关键词变色处理方法,这个实际中的使用场景比如地图关键字搜索，匹配到关键字的地址中关键字显示特别颜色<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SpannableString <span class="title">getKeyWordSpan</span><span class="params">(<span class="keyword">int</span> color, String str, String patterStr)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        SpannableString spannableString = <span class="keyword">new</span> SpannableString(str);</div><div class="line">        Pattern patten = Pattern.compile(patterStr, Pattern.CASE_INSENSITIVE);</div><div class="line">        dealPattern(color, spannableString, patten, <span class="number">0</span>);</div><div class="line">        <span class="keyword">return</span> spannableString;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>6.话题处理,参数中需要传入话题对象。这里只处理了一个帖子中只有一个话题的情况<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SpannableString <span class="title">getTopicSpan</span><span class="params">(<span class="keyword">int</span> color, String str, <span class="keyword">boolean</span> clickable,SpanClickListener spanClickListener, Topic topic)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    SpannableString spannableString = <span class="keyword">new</span> SpannableString(str);</div><div class="line">    Pattern patten = Pattern.compile(PatternString.TOPIC_PATTERN, Pattern.CASE_INSENSITIVE);</div><div class="line">    <span class="keyword">if</span>(clickable)&#123;</div><div class="line">        dealClick(spannableString, patten, <span class="number">0</span>, spanClickListener, topic);</div><div class="line">    &#125;</div><div class="line">    dealPattern(color, spannableString, patten, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> spannableString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7.@好友处理，参数中需要传入@的好友列表<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SpannableString <span class="title">getAtUserSpan</span><span class="params">(<span class="keyword">int</span> color, String str, <span class="keyword">boolean</span> clickable, SpanClickListener spanClickListener, List&lt;User&gt; atUsers)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        SpannableString spannableString = <span class="keyword">new</span> SpannableString(str);</div><div class="line">        Pattern patten;</div><div class="line">        <span class="keyword">for</span> (User u : atUsers) &#123;</div><div class="line">            patten = Pattern.compile(<span class="string">"@"</span> + u.getName(), Pattern.CASE_INSENSITIVE);</div><div class="line">            <span class="keyword">if</span>(clickable)&#123;</div><div class="line">                dealClick(spannableString, patten, <span class="number">0</span>, spanClickListener, u);</div><div class="line">            &#125;</div><div class="line">            dealPattern(color, spannableString, patten, <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> spannableString;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>8.表情处理，就这么简洁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SpannableString <span class="title">getExpressionSpan</span><span class="params">(Context context, String str)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">return</span> ExpressionConvertUtil.getInstace().getExpressionString(context, str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h1><p>1.关键字变色<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">testColoredKeywd</span><span class="params">()</span> </span>&#123;</div><div class="line">        String string = <span class="string">"Android一词的本义指“机器人”，同时也是Google于2007年11月5日,Android logo相关图片,Android logo相关图片(36张)\n"</span>;</div><div class="line">        SpannableString cardText = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            cardText = SpanUtils.getKeyWordSpan(getResources().getColor(R.color.md_green_600), string, <span class="string">"Android"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        tvColoredKeywd.setText(cardText);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>2.话题测试,需要注意的是，让部分内容可点击需要设置<code>tvTopic.setMovementMethod(LinkMovementMethod.getInstance());</code>，否则点击无效果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">testTopic</span><span class="params">()</span> </span>&#123;</div><div class="line">        String topic = <span class="string">"#舌尖上的大连#四种金牌烤芝士吃法爱吃芝士的盆友不要错过了~L秒拍视频\n"</span>;</div><div class="line">        SpannableString topicText = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            topicText = SpanUtils.getTopicSpan(Color.BLUE, topic, <span class="keyword">true</span>, <span class="keyword">new</span> SpanUtils.SpanClickListener&lt;Topic&gt;() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSpanClick</span><span class="params">(Topic t)</span> </span>&#123;</div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击话题:"</span> + t.toString() , Toast.LENGTH_SHORT).show();</div><div class="line">                &#125;</div><div class="line">            &#125;, <span class="keyword">new</span> Topic(<span class="number">1</span>, <span class="string">"舌尖上的大连"</span>));</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        tvTopic.setText(topicText);</div><div class="line">        <span class="comment">//如果想实现点击，必须要设置这个</span></div><div class="line">        tvTopic.setMovementMethod(LinkMovementMethod.getInstance());</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>3.@好友测试<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">textAtUsers</span><span class="params">()</span></span>&#123;</div><div class="line">        List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        users.add(<span class="keyword">new</span> User(<span class="number">1</span>, <span class="string">"好友1"</span>));</div><div class="line">        users.add(<span class="keyword">new</span> User(<span class="number">2</span>, <span class="string">"好友2"</span>));</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="string">"快来看看啊"</span>);</div><div class="line">        <span class="keyword">for</span> (User u : users) &#123;</div><div class="line">            sb.append(<span class="string">"@"</span>).append(u.getName());</div><div class="line">        &#125;</div><div class="line">        sb.append(<span class="string">"\n"</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            SpannableString atSpan = SpanUtils.getAtUserSpan(Color.BLUE, sb.toString(), <span class="keyword">true</span>, <span class="keyword">new</span> SpanUtils.SpanClickListener&lt;User&gt;() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSpanClick</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"@好友:"</span> + user.toString(), Toast.LENGTH_SHORT).show();</div><div class="line">                &#125;</div><div class="line">            &#125;, users);</div><div class="line"></div><div class="line">            tvTestAt.setText(atSpan);</div><div class="line">            tvTestAt.setMovementMethod(LinkMovementMethod.getInstance());</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>4.表情测试<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">textExpression</span><span class="params">()</span></span>&#123;</div><div class="line">       String exStr = <span class="string">"今天天气很好啊[呲牙],是不是应该做点什么[色]"</span>;</div><div class="line">       SpannableString span = <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           span = SpanUtils.getExpressionSpan(<span class="keyword">this</span>, exStr);</div><div class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125;</div><div class="line">       tvExpression.setText(span);</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="http://img.blog.csdn.net/20160909145349070" alt="这里写图片描述"></p>
+<h2 id="下载：https-github-com-LineChen-SpannableStringDemo"><a href="#下载：https-github-com-LineChen-SpannableStringDemo" class="headerlink" title="下载：https://github.com/LineChen/SpannableStringDemo"></a><a href="https://github.com/LineChen/SpannableStringDemo" target="_blank" rel="external">下载：https://github.com/LineChen/SpannableStringDemo</a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/09/09/实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类/" data-id="cisveqztg0003zgqrz12uq2kj" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/09/使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">使用SpannableString实现类似新浪微博、QQ空间等帖子显示(1)——SpannableString说明</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://blog.csdn.net/u011102153" target="_blank">我的csdn</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/LineChen" target="_blank">我的github</a>
+          </li>
+        
+          <li>
+            <a href="https://darksiderlyd.github.io/" target="_blank">Darksiderl的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 LineChen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
