@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LeafChart(3) - 绘制直方图 | LineChen&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#1. 简介
+前两篇简单介绍了这个自定义图标库。LeafChart-实现自己的小型图表库（1）  LeafChart-实现自己的小型图表库（2） 
+之前LeafChart只支持曲线图，现在在之前的基础上，添加了直方图。
+##1.1 效果图
+##1.2  设置
+
+直方图宽度
+边框宽度、颜色
+是否填充
+是否有标签
+标签背景色、弧度
+
+#2. 实现
+##2.1 类介绍
+为了更简便的控制直方图的属性，定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeafChart(3) - 绘制直方图">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/LeafChart(3) - 绘制直方图/index.html">
+<meta property="og:site_name" content="LineChen's Blog">
+<meta property="og:description" content="#1. 简介
+前两篇简单介绍了这个自定义图标库。LeafChart-实现自己的小型图表库（1）  LeafChart-实现自己的小型图表库（2） 
+之前LeafChart只支持曲线图，现在在之前的基础上，添加了直方图。
+##1.1 效果图
+##1.2  设置
+
+直方图宽度
+边框宽度、颜色
+是否填充
+是否有标签
+标签背景色、弧度
+
+#2. 实现
+##2.1 类介绍
+为了更简便的控制直方图的属性，定义">
+<meta property="og:image" content="http://img.blog.csdn.net/20160912093913196">
+<meta property="og:image" content="http://img.blog.csdn.net/20160912093935258">
+<meta property="og:image" content="http://img.blog.csdn.net/20160912094005118">
+<meta property="og:updated_time" content="2016-09-12T01:58:14.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeafChart(3) - 绘制直方图">
+<meta name="twitter:description" content="#1. 简介
+前两篇简单介绍了这个自定义图标库。LeafChart-实现自己的小型图表库（1）  LeafChart-实现自己的小型图表库（2） 
+之前LeafChart只支持曲线图，现在在之前的基础上，添加了直方图。
+##1.1 效果图
+##1.2  设置
+
+直方图宽度
+边框宽度、颜色
+是否填充
+是否有标签
+标签背景色、弧度
+
+#2. 实现
+##2.1 类介绍
+为了更简便的控制直方图的属性，定义">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160912093913196">
+  
+    <link rel="alternative" href="/atom.xml" title="LineChen&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LineChen&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Now is Android</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-LeafChart(3) - 绘制直方图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/12/LeafChart(3) - 绘制直方图/" class="article-date">
+  <time datetime="2016-09-12T01:58:20.000Z" itemprop="datePublished">2016-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeafChart(3) - 绘制直方图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#1. 简介</p>
+<p>前两篇简单介绍了这个自定义图标库。<br><a href="http://blog.csdn.net/u011102153/article/details/51931072" target="_blank" rel="external">LeafChart-实现自己的小型图表库（1） </a><br><a href="http://blog.csdn.net/u011102153/article/details/52039794" target="_blank" rel="external"> LeafChart-实现自己的小型图表库（2） </a></p>
+<p>之前LeafChart只支持曲线图，现在在之前的基础上，添加了直方图。</p>
+<p>##1.1 效果图<br><img src="http://img.blog.csdn.net/20160912093913196" alt="直方图1"><br><img src="http://img.blog.csdn.net/20160912093935258" alt="直方图2"></p>
+<p>##1.2  设置</p>
+<ul>
+<li>直方图宽度</li>
+<li>边框宽度、颜色</li>
+<li>是否填充</li>
+<li>是否有标签</li>
+<li>标签背景色、弧度</li>
+</ul>
+<p>#2. 实现</p>
+<p>##2.1 类介绍</p>
+<p>为了更简便的控制直方图的属性，定义直方图类Square，该类同样继承自ChartData。</p>
+<blockquote>
+<p>Square</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>属性</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>width</td>
+<td>直方图宽度</td>
+</tr>
+<tr>
+<td>int</td>
+<td>borderWidth</td>
+<td>边界宽度</td>
+</tr>
+<tr>
+<td>int</td>
+<td>borderColor</td>
+<td>边界颜色</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isFill</td>
+<td>是否填充</td>
+</tr>
+</tbody>
+</table>
+<p>##2.2 新增属性</p>
+<p>AbsLeafChart是曲线图和直方图的抽象类，主要负责坐标轴的绘制、尺寸的测量、点位置设置等。</p>
+<p>在实现曲线图的时候，默认第一条平行于y轴的坐标轴从0点开始，对于曲线图，绘制效果影响不大，但是对于直方图来说，由于每个直方图有自己的宽度，如果从0点开始，则第一个直方图会到0点左边去。</p>
+<p>所以，新增属性startMarginX，第一个点距y轴距离。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;declare-styleable name="AbsLeafChart"&gt;</div><div class="line">       &lt;attr name="startMarginX" format="dimension"/&gt;</div><div class="line"></div><div class="line">       &lt;attr name="startMarginY" format="dimension"/&gt;</div><div class="line"> &lt;/declare-styleable&gt;</div></pre></td></tr></table></figure>
+<h2 id="2-3-绘制方块"><a href="#2-3-绘制方块" class="headerlink" title="2.3 绘制方块"></a>2.3 绘制方块</h2><ul>
+<li>在每一个点出绘制一个方块</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawSquares</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (square != <span class="keyword">null</span>) &#123;</div><div class="line">          <span class="comment">//1.画直方图边界</span></div><div class="line">          linePaint.setColor(square.getBorderColor());</div><div class="line">          <span class="keyword">if</span>(!square.isFill())&#123;</div><div class="line">              linePaint.setStrokeWidth(LeafUtil.dp2px(getContext(), square.getBorderWidth()));</div><div class="line">              linePaint.setStyle(Paint.Style.STROKE);</div><div class="line">          &#125;</div><div class="line">          List&lt;PointValue&gt; values = square.getValues();</div><div class="line">          <span class="keyword">float</span> width = LeafUtil.dp2px(getContext(), square.getWidth());</div><div class="line">          <span class="keyword">for</span> (PointValue point : values) &#123;</div><div class="line">              RectF rectF = <span class="keyword">new</span> RectF(point.getOriginX() - width / <span class="number">2</span>,</div><div class="line">                      point.getOriginY(), point.getOriginX() + width / <span class="number">2</span>, axisX.getStartY());</div><div class="line"></div><div class="line">              canvas.drawRect(rectF, linePaint);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>##2.4 绘制标签</p>
+<p>标签绘制和曲线图一样，所以直接调用父类的标签绘制方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> (square != <span class="keyword">null</span> &amp;&amp; square.isHasLabels()) &#123;</div><div class="line">           <span class="keyword">super</span>.drawLabels(canvas, square);</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<p>#3 使用</p>
+<p>使用步骤和曲线图基本一致。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initSquareChart</span><span class="params">()</span> </span>&#123;</div><div class="line">    Axis axisX = <span class="keyword">new</span> Axis(getAxisValuesX());</div><div class="line">    axisX.setAxisColor(Color.parseColor(<span class="string">"#FF4081"</span>)).setTextColor(Color.DKGRAY).setHasLines(<span class="keyword">false</span>);</div><div class="line">    Axis axisY = <span class="keyword">new</span> Axis(getAxisValuesY());</div><div class="line">    axisY.setAxisColor(Color.parseColor(<span class="string">"#FF4081"</span>)).setTextColor(Color.DKGRAY).setHasLines(<span class="keyword">false</span>).setShowText(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">    leafSquareChart.setAxisX(axisX);</div><div class="line">    leafSquareChart.setAxisY(axisY);</div><div class="line">    leafSquareChart.setChartData(getSquares());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#4.新增原点处坐标轴控制</p>
+<p>##4.1 效果图</p>
+<p><img src="http://img.blog.csdn.net/20160912094005118" alt="mode"></p>
+<p>##4.2 自定义属性</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;attr name="coordinateMode"&gt;</div><div class="line">            &lt;enum name="across" value="1"/&gt;</div><div class="line">            &lt;enum name="intersect" value="2"/&gt;</div><div class="line">            &lt;enum name="x_across" value="3"/&gt;</div><div class="line">            &lt;enum name="y_across" value="4"/&gt;</div><div class="line">        &lt;/attr&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Mode</span></span>&#123;</div><div class="line">     <span class="comment">/**</span></div><div class="line">      * 交叉，x、y轴都超出0点</div><div class="line">      */</div><div class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACROSS = <span class="number">1</span>;</div><div class="line"></div><div class="line">     <span class="comment">/**</span></div><div class="line">      * 相交， x、y轴交于0点</div><div class="line">      */</div><div class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERSECT = <span class="number">2</span>;</div><div class="line"></div><div class="line">     <span class="comment">/**</span></div><div class="line">      * x轴超出0点</div><div class="line">      */</div><div class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> X_ACROSS = <span class="number">3</span>;</div><div class="line"></div><div class="line">     <span class="comment">/**</span></div><div class="line">      * y轴超出0点</div><div class="line">      */</div><div class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> Y_ACROSS = <span class="number">4</span>;</div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>##4.3 位置处理</p>
+<ul>
+<li>x轴</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resetAsixX</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(axisX != <span class="keyword">null</span>)&#123;</div><div class="line">            List&lt;AxisValue&gt; values = axisX.getValues();</div><div class="line">            <span class="keyword">int</span> sizeX = values.size(); <span class="comment">//几条y轴</span></div><div class="line">            <span class="keyword">float</span> xStep = (mWidth - leftPadding - startMarginX) / sizeX;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++) &#123;</div><div class="line">                AxisValue axisValue = values.get(i);</div><div class="line">                axisValue.setPointY(mHeight);</div><div class="line">                <span class="keyword">if</span>(i == <span class="number">0</span>)&#123;</div><div class="line">                    axisValue.setPointX(leftPadding + startMarginX);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    axisValue.setPointX(leftPadding + startMarginX + xStep * i);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">switch</span> (coordinateMode)&#123;</div><div class="line">                <span class="keyword">case</span> Mode.ACROSS:</div><div class="line">                <span class="keyword">case</span> Mode.X_ACROSS:</div><div class="line">                    axisX.setStartX(leftPadding * <span class="number">0.5f</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line"></div><div class="line">                <span class="keyword">case</span> Mode.INTERSECT:</div><div class="line">                <span class="keyword">case</span> Mode.Y_ACROSS:</div><div class="line">                    axisX.setStartX(leftPadding);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            axisX.setStartY(mHeight - bottomPadding).setStopX(mWidth).setStopY(mHeight - bottomPadding);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>y轴</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resetAsixY</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span>(axisY != <span class="keyword">null</span>)&#123;</div><div class="line">           List&lt;AxisValue&gt; values = axisY.getValues();</div><div class="line">           <span class="keyword">int</span> sizeY = values.size(); <span class="comment">//几条x轴</span></div><div class="line">           <span class="keyword">float</span> yStep = (mHeight - topPadding - bottomPadding - startMarginY) / sizeY;</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sizeY; i++) &#123;</div><div class="line">               AxisValue axisValue = values.get(i);</div><div class="line">               axisValue.setPointX(leftPadding);</div><div class="line">               <span class="keyword">if</span>(i == <span class="number">0</span>)&#123;</div><div class="line">                   axisValue.setPointY(mHeight - bottomPadding - startMarginY);</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   axisValue.setPointY(mHeight - bottomPadding - startMarginY - yStep * i);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">           <span class="keyword">switch</span> (coordinateMode)&#123;</div><div class="line">               <span class="keyword">case</span> Mode.ACROSS:</div><div class="line">               <span class="keyword">case</span> Mode.Y_ACROSS:</div><div class="line">                   axisY.setStartY(mHeight - bottomPadding * <span class="number">0.5f</span>);</div><div class="line">                   <span class="keyword">break</span>;</div><div class="line"></div><div class="line">               <span class="keyword">case</span> Mode.INTERSECT:</div><div class="line">               <span class="keyword">case</span> Mode.X_ACROSS:</div><div class="line">                   axisY.setStartY(mHeight - bottomPadding);</div><div class="line">                   <span class="keyword">break</span>;</div><div class="line">           &#125;</div><div class="line">           axisY.setStartX(leftPadding).setStopX(leftPadding).setStopY(<span class="number">0</span>);</div><div class="line"></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>#5.下载<br> <strong><a href="https://github.com/LineChen/LeafChart" target="_blank" rel="external">LeafChart</a></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/09/12/LeafChart(3) - 绘制直方图/" data-id="ciszehxat00004gqrkvhiaafr" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义控件/">自定义控件</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/09/实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">实现类似新浪微博帖子显示(2)——话题、@好友、表情解析工具类</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义控件/">自定义控件</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">2016 年 9 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 8 月</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://blog.csdn.net/u011102153" target="_blank">我的csdn</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/LineChen" target="_blank">我的github</a>
+          </li>
+        
+          <li>
+            <a href="https://darksiderlyd.github.io/" target="_blank">Darksiderl的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 LineChen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
